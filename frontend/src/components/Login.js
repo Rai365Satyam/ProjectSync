@@ -7,6 +7,9 @@ function Login() {
     const [formData, setFormData] = useState({ name: "", email: "", password: "" });
     const [loading, setLoading] = useState(false);
 
+    // Replace this with your exact Render backend URL (no trailing slash)
+    const API_BASE_URL = "https://projectsync-eslx.onrender.com";
+
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
@@ -17,12 +20,12 @@ function Login() {
         try {
             if (isSignup) {
                 // Call backend signup API
-                await axios.post("https://projectsync-eslx.onrender.com/signup", formData);
+                await axios.post(`${API_BASE_URL}/signup`, formData);
                 toast.success("Account created! Please log in.");
                 setIsSignup(false);
             } else {
                 // Call backend login API
-                const { data } = await axios.post("https://projectsync-eslx.onrender.com/login", {
+                const { data } = await axios.post(`${API_BASE_URL}/login`, {
                     email: formData.email,
                     password: formData.password,
                 });
