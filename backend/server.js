@@ -16,8 +16,9 @@ const app = express()
 // --- BULLETPROOF CORS CONFIGURATION ---
 app.use(cors({
     origin: [
-        "https://projectsync-projectsync.vercel.app", // Your live Vercel frontend
-        "http://localhost:3000" // Your local environment
+        "https://projectsync-projectsync.vercel.app", // Your main production link
+        process.env.CORS_ORIGIN,                      // Your dynamic preview link from Render
+        "http://localhost:3000"                       // Local development
     ],
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     credentials: true,
