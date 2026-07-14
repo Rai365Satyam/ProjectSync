@@ -5,7 +5,7 @@ import Login from "./components/Login";
 import Dashboard from "./components/Dashboard"; // Imported your new proper dashboard
 import { Toaster } from "react-hot-toast";
 import axios from "axios";
-
+axios.defaults.baseURL = "https://projectsync-backend.onrender.com";
 // Automatically intercept and attach JWT Token to Axios requests if logged in
 axios.interceptors.request.use((config) => {
   const token = localStorage.getItem("token");
