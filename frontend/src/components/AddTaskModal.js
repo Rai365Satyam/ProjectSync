@@ -12,7 +12,7 @@ const AddTaskModal = ({ isAddTaskModalOpen, setAddTaskModal, projectId = null, t
 
     useEffect(() => {
         if (edit && isAddTaskModalOpen) {
-            axios.get(`http://localhost:9005/project/${projectId}/task/${taskId}`)
+            axios.get(`https://projectsync-eslx.onrender.com/project/${projectId}/task/${taskId}`)
                 .then((res) => {
                     if (res.data && res.data[0] && res.data[0].task && res.data[0].task[0]) {
                         setTitle(res.data[0].task[0].title)
@@ -30,7 +30,7 @@ const AddTaskModal = ({ isAddTaskModalOpen, setAddTaskModal, projectId = null, t
         const payload = { title, description: desc };
 
         if (!edit) {
-            axios.post(`http://localhost:9005/project/${projectId}/task`, payload)
+            axios.post(`https://projectsync-eslx.onrender.com/project/${projectId}/task`, payload)
                 .then(() => {
                     setAddTaskModal(false)
                     toast.success('Task created successfully')
@@ -42,7 +42,7 @@ const AddTaskModal = ({ isAddTaskModalOpen, setAddTaskModal, projectId = null, t
                     toast.error(error.response?.data?.message || 'Something went wrong')
                 })
         } else {
-            axios.put(`http://localhost:9005/project/${projectId}/task/${taskId}`, payload)
+            axios.put(`https://projectsync-eslx.onrender.com/project/${projectId}/task/${taskId}`, payload)
                 .then(() => {
                     setAddTaskModal(false)
                     toast.success('Task updated successfully')

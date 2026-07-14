@@ -17,12 +17,12 @@ function Login() {
         try {
             if (isSignup) {
                 // Call backend signup API
-                await axios.post("http://localhost:9005/signup", formData);
+                await axios.post("https://projectsync-eslx.onrender.com/signup", formData);
                 toast.success("Account created! Please log in.");
                 setIsSignup(false);
             } else {
                 // Call backend login API
-                const { data } = await axios.post("http://localhost:9005/login", {
+                const { data } = await axios.post("https://projectsync-eslx.onrender.com/login", {
                     email: formData.email,
                     password: formData.password,
                 });

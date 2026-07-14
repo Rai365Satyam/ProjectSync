@@ -9,7 +9,7 @@ const Dashboard = () => {
 
     useEffect(() => {
         // Fetch all project metrics from port 9005
-        axios.get('http://localhost:9005/projects') 
+        axios.get('https://projectsync-eslx.onrender.com/projects') 
             .then((res) => {
                 setProjects(res.data || []);
                 setLoading(false);

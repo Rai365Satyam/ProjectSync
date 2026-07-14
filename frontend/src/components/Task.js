@@ -72,7 +72,7 @@ function Task() {
 
     useEffect(() => {
         if (!isAddTaskModalOpen || isRenderChange) {
-            axios.get(`http://localhost:9005/project/${projectId}`)
+            axios.get(`https://projectsync-eslx.onrender.com/project/${projectId}`)
                 .then((res) => {
                     if (res.data && res.data[0]) {
                         const project = res.data[0];
@@ -109,7 +109,7 @@ function Task() {
     }, [projectId, isAddTaskModalOpen, isRenderChange]);
 
     const updateTodo = (data) => {
-        axios.put(`http://localhost:9005/project/${projectId}/todo`, data)
+        axios.put(`https://projectsync-eslx.onrender.com/project/${projectId}/todo`, data)
             .then(() => {})
             .catch(() => {
                 toast.error('Something went wrong');
@@ -118,7 +118,7 @@ function Task() {
 
     const handleDelete = (e, id) => {
         e.stopPropagation();
-        axios.delete(`http://localhost:9005/project/${projectId}/task/${id}`)
+        axios.delete(`https://projectsync-eslx.onrender.com/project/${projectId}/task/${id}`)
             .then(() => {
                 toast.success('Task deleted successfully');
                 setRenderChange(true);

@@ -13,7 +13,7 @@ const AddProjectModal = ({ isModalOpen, closeModal, edit = false, id = null }) =
 
     useEffect(() => {
         if (edit && isModalOpen) {
-            axios.get(`http://localhost:9005/project/${id}`)
+            axios.get(`https://projectsync-eslx.onrender.com/project/${id}`)
                 .then((res) => {
                     setTitle(res.data[0].title)
                     setDesc(res.data[0].description)
@@ -45,7 +45,7 @@ const AddProjectModal = ({ isModalOpen, closeModal, edit = false, id = null }) =
         };
 
         if (!edit) {
-            axios.post('http://localhost:9005/project/', payload)
+            axios.post('https://projectsync-eslx.onrender.com:9005/project/', payload)
                 .then((res) => {
                     closeModal()
                     const customEvent = new CustomEvent('projectUpdate', { detail: { ...res.data } });
@@ -63,7 +63,7 @@ const AddProjectModal = ({ isModalOpen, closeModal, edit = false, id = null }) =
                     }
                 })
         } else {
-            axios.put(`http://localhost:9005/project/${id}`, payload)
+            axios.put(`https://projectsync-eslx.onrender.com/project/${id}`, payload)
                 .then((res) => {
                     closeModal()
                     const customEvent = new CustomEvent('projectUpdate', { detail: { ...res.data } });
