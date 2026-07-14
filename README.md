@@ -52,4 +52,5 @@ Make sure you have Node.js and MongoDB installed on your local machine.
      
 ============**Author**=============
 **Satyam Rai**
+**Stuti Gupta**
 **IIT BHU**
