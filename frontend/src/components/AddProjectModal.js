@@ -45,7 +45,7 @@ const AddProjectModal = ({ isModalOpen, closeModal, edit = false, id = null }) =
         };
 
         if (!edit) {
-            axios.post('https://projectsync-eslx.onrender.com:9005/project/', payload)
+            axios.post('https://projectsync-eslx.onrender.com/project/', payload)
                 .then((res) => {
                     closeModal()
                     const customEvent = new CustomEvent('projectUpdate', { detail: { ...res.data } });
